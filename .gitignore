@@ -205,3 +205,27 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Web Project
+# Node modules (if using npm for tooling)
+node_modules/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Audio assets (large files - add separately or use Git LFS)
+# assets/audio/*.mp3
+# assets/audio/*.wav
+# assets/audio/*.ogg
+
+# Video assets (large files - add separately or use Git LFS)
+# assets/*.mp4
+# assets/*.webm

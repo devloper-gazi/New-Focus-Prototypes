@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Layer Audio Generator - Focus Soundscapes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Multi-Layer Audio Generator</h1>
+            <p class="subtitle">Create your perfect focus soundscape</p>
+        </header>
+
+        <main>
+            <!-- Video Player Section -->
+            <section class="video-section">
+                <div class="video-container">
+                    <video id="mainVideo" controls>
+                        <source src="assets/sample-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-placeholder">
+                        <p>No video loaded - Audio layers will work independently</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audio Control Panel -->
+            <section class="control-panel">
+                <div class="panel-header">
+                    <h2>Audio Layers</h2>
+                    <div class="master-controls">
+                        <button id="playAllBtn" class="btn btn-primary">
+                            <span class="icon">▶</span> Play All Layers
+                        </button>
+                        <button id="stopAllBtn" class="btn btn-secondary">
+                            <span class="icon">⏹</span> Stop All
+                        </button>
+                        <div class="master-volume">
+                            <label for="masterVolume">Master Volume</label>
+                            <input type="range" id="masterVolume" min="0" max="100" value="70" class="volume-slider master">
+                            <span id="masterVolumeValue" class="volume-value">70%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual Audio Layers -->
+                <div class="layers-container">
+                    <!-- Nature Sounds Layer -->
+                    <div class="audio-layer" data-layer="nature">
+                        <div class="layer-header">
+                            <div class="layer-info">
+                                <span class="layer-icon">🌿</span>
+                                <h3 class="layer-name">Nature Sounds</h3>
+                            </div>
+                            <div class="layer-actions">
+                                <button class="btn-toggle" data-action="toggle">
+                                    <span class="icon">▶</span>
+                                </button>
+                                <select class="audio-select" data-layer="nature">
+                                    <option value="">Select Sound</option>
+                                    <option value="rain">Rain</option>
+                                    <option value="forest">Forest</option>
+                                    <option value="ocean">Ocean Waves</option>
+                                    <option value="stream">Stream</option>
+                                    <option value="birds">Birds</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layer-controls">
+                            <div class="volume-control">
+                                <label>Volume</label>
+                                <input type="range" class="volume-slider" min="0" max="100" value="60">
+                                <span class="volume-value">60%</span>
+                            </div>
+                            <div class="visualization">
+                                <canvas class="waveform" width="200" height="40"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instrumental Music Layer -->
+                    <div class="audio-layer" data-layer="music">
+                        <div class="layer-header">
+                            <div class="layer-info">
+                                <span class="layer-icon">🎹</span>
+                                <h3 class="layer-name">Instrumental Music</h3>
+                            </div>
+                            <div class="layer-actions">
+                                <button class="btn-toggle" data-action="toggle">
+                                    <span class="icon">▶</span>
+                                </button>
+                                <select class="audio-select" data-layer="music">
+                                    <option value="">Select Music</option>
+                                    <option value="piano">Soft Piano</option>
+                                    <option value="ambient">Ambient Synth</option>
+                                    <option value="guitar">Acoustic Guitar</option>
+                                    <option value="strings">String Ensemble</option>
+                                    <option value="lofi">Lo-Fi Beats</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layer-controls">
+                            <div class="volume-control">
+                                <label>Volume</label>
+                                <input type="range" class="volume-slider" min="0" max="100" value="40">
+                                <span class="volume-value">40%</span>
+                            </div>
+                            <div class="visualization">
+                                <canvas class="waveform" width="200" height="40"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- White Noise Layer -->
+                    <div class="audio-layer" data-layer="noise">
+                        <div class="layer-header">
+                            <div class="layer-info">
+                                <span class="layer-icon">📻</span>
+                                <h3 class="layer-name">White Noise</h3>
+                            </div>
+                            <div class="layer-actions">
+                                <button class="btn-toggle" data-action="toggle">
+                                    <span class="icon">▶</span>
+                                </button>
+                                <select class="audio-select" data-layer="noise">
+                                    <option value="">Select Noise</option>
+                                    <option value="white">White Noise</option>
+                                    <option value="pink">Pink Noise</option>
+                                    <option value="brown">Brown Noise</option>
+                                    <option value="fan">Fan Noise</option>
+                                    <option value="cafe">Cafe Ambience</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layer-controls">
+                            <div class="volume-control">
+                                <label>Volume</label>
+                                <input type="range" class="volume-slider" min="0" max="100" value="30">
+                                <span class="volume-value">30%</span>
+                            </div>
+                            <div class="visualization">
+                                <canvas class="waveform" width="200" height="40"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ambient Layer -->
+                    <div class="audio-layer" data-layer="ambient">
+                        <div class="layer-header">
+                            <div class="layer-info">
+                                <span class="layer-icon">🌌</span>
+                                <h3 class="layer-name">Ambient Textures</h3>
+                            </div>
+                            <div class="layer-actions">
+                                <button class="btn-toggle" data-action="toggle">
+                                    <span class="icon">▶</span>
+                                </button>
+                                <select class="audio-select" data-layer="ambient">
+                                    <option value="">Select Ambient</option>
+                                    <option value="space">Space Drone</option>
+                                    <option value="temple">Temple Bells</option>
+                                    <option value="wind">Wind Chimes</option>
+                                    <option value="tibetan">Tibetan Bowls</option>
+                                    <option value="meditation">Meditation Pad</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="layer-controls">
+                            <div class="volume-control">
+                                <label>Volume</label>
+                                <input type="range" class="volume-slider" min="0" max="100" value="20">
+                                <span class="volume-value">20%</span>
+                            </div>
+                            <div class="visualization">
+                                <canvas class="waveform" width="200" height="40"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Presets Section -->
+                <div class="presets-section">
+                    <h3>Quick Presets</h3>
+                    <div class="presets-grid">
+                        <button class="preset-btn" data-preset="deep-focus">
+                            <span class="preset-icon">🎯</span>
+                            <span class="preset-name">Deep Focus</span>
+                        </button>
+                        <button class="preset-btn" data-preset="calm-workspace">
+                            <span class="preset-icon">☕</span>
+                            <span class="preset-name">Calm Workspace</span>
+                        </button>
+                        <button class="preset-btn" data-preset="nature-retreat">
+                            <span class="preset-icon">🏞️</span>
+                            <span class="preset-name">Nature Retreat</span>
+                        </button>
+                        <button class="preset-btn" data-preset="rain-study">
+                            <span class="preset-icon">🌧️</span>
+                            <span class="preset-name">Rain Study</span>
+                        </button>
+                        <button class="preset-btn" data-preset="meditation">
+                            <span class="preset-icon">🧘</span>
+                            <span class="preset-name">Meditation</span>
+                        </button>
+                        <button class="preset-btn" data-preset="custom">
+                            <span class="preset-icon">⭐</span>
+                            <span class="preset-name">Save Custom</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Settings & Info -->
+                <div class="settings-section">
+                    <details>
+                        <summary>Advanced Settings</summary>
+                        <div class="settings-content">
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="syncVideo" checked>
+                                    Sync with Video Playback
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="crossfade" checked>
+                                    Enable Crossfade
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    Fade Duration (ms)
+                                    <input type="number" id="fadeDuration" min="100" max="5000" value="1000" step="100">
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label>
+                                    <input type="checkbox" id="loopLayers" checked>
+                                    Loop Audio Layers
+                                </label>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="status-label">Active Layers:</span>
+                    <span id="activeLayers" class="status-value">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Status:</span>
+                    <span id="playbackStatus" class="status-value">Stopped</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Audio Context:</span>
+                    <span id="audioContextStatus" class="status-value">Not Initialized</span>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Multi-Layer Audio Generator | Built with Web Audio API</p>
+        </footer>
+    </div>
+
+    <script src="audio-engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
